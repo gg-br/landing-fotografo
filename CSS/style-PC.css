@@ -25,6 +25,7 @@ header {
 }
 
 section:first-of-type {
+    background-color: rgb(61, 61, 61);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -65,34 +66,31 @@ section:first-of-type {
 }
 
 section:nth-of-type(2) {
-
-    height: 70vh;
-    width: 90vw;
     overflow: hidden;
-
+    padding-top: 150px;
     & .list-item {
-        height: 100%;
+        
+        height: 70%;
         width: 100%;
         position: absolute;
 
         & img {
-
             object-fit: contain;
             width: 100%;
-            height: 80%;
+            height: 100%;
         }
     }
 
     & .thumb {
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
+        margin-top: -150px;
         display: flex;
-        gap: 20px;
+        justify-content: center;
+        bottom: 50px;
+        display: flex;
 
         & .thumb-item {
-            width: 135px;
-            height: 200px;
+            width: 100px;
+            height: 150px;
             position: relative;
 
             & img {
@@ -114,3 +112,4 @@ section:nth-of-type(2) {
         }
     }
 }
+
