@@ -6,6 +6,121 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="CSS/style-PC.css">
+
+    <style>* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+    
+    body {
+        background-color: black;
+        color: white;
+    }
+    
+    header {
+        width: 80%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin: auto;
+    
+        & a {
+            color: white;
+            margin-right: 40px;
+        }
+    }
+    
+    section:first-of-type {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        justify-content: center;
+        padding: 10px;
+        & div {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+    
+            & h1 {
+    
+                font-weight: 400;
+                font-size: 64px;
+                color: var(--texto-principal);
+            }
+    
+            & h2 {
+                color: var(--texto-principal);
+                font-weight: 500;
+                font-size: 25px;
+            }
+    
+            & p {
+                width: 500px;
+                color: var(--texto-secundario);
+            }
+        }
+    
+        & img {
+            height: 250px;
+            border-radius: 50%;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.486);
+        }
+    }
+    
+    section:nth-of-type(2) {
+     
+        height: 70vh;
+        width: 90vw;
+        overflow: hidden;
+    
+        & .list-item {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+    
+            & img {
+               
+                object-fit: contain;
+                width: 100%;
+                height: 80%;
+            }
+        }
+    
+        & .thumb{
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            display: flex;
+            gap: 20px;
+    
+            & .thumb-item{
+                width: 135px;
+                height: 200px;
+                position: relative;
+    
+                & img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    
+    button{
+        cursor: pointer;
+        z-index: 40;
+        position: absolute;
+        gap: 40px;
+        display: flex;
+        align-items: center;height: 300px;
+      }</style>
 </head>
 <body>
     <header>
@@ -28,8 +143,14 @@
         <img src="Imagens/joao.png" alt="">
     </section>
 
-    <section>
+    <section class="container"> 
         <div class="list">
+            <div class="list-item">
+                <img src="Imagens/casal2.png" alt="">
+            </div>
+            <div class="list-item">
+                <img src="Imagens/casal3.png" alt="">
+            </div>
             <div class="list-item">
                 <img src="Imagens/alianças.png" alt="">
             </div>
@@ -40,20 +161,53 @@
 
         <div class="thumb">
             <div class="thumb-item">
-                <img src="Imagens/alianças.png" alt="">
+                <img src="Imagens/casal2.png" alt="">
+            </div>
+            <div class="thumb-item">
+                <img src="Imagens/casal3.png" alt="">
             </div>
             <div class="thumb-item">
                 <img src="Imagens/alianças.png" alt="">
             </div>
             <div class="thumb-item">
-                <img src="Imagens/alianças.png" alt="">
+                <img src="Imagens/casal.png" alt="">
             </div>
         </div>
 
+        <div class="arrows">
+            <button class="back">ESQUERDA</button>
+            <button class="next">DIREITA</button>
+        </div>
+        
     </section>
 
     <footer>
 
     </footer>
+
+    <script>
+        let btnNext = document.querySelector('.next')
+let btnBack = document.querySelector('.back')
+
+let container = document.querySelector('.container')
+let list = document.querySelector('.container .list')
+let thumb = document.querySelector('.container .thumb')
+
+btnNext.onclick = () => moveItems('next')
+btnBack.onclick = () => moveItems('back')
+
+function moveItems(type){
+    let listItem = document.querySelectorAll('.list .list-item')
+    let thumbItem = document.querySelectorAll('.thumb .thumb-item')
+
+    if(type === 'next'){
+        list.appendChild(listItem[0])
+        thumb.appendChild(thumbItem[0])
+    } else {
+        list.prepend(listItem[listItem.length -1])
+        thumb.prepend(thumbItem[thumbItem.length -1])
+    }
+}
+    </script>
 </body>
 </html>
