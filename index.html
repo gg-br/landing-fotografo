@@ -12,30 +12,28 @@
 <body>
     <header>
         <nav>
-            <a href="">home1</a>
-            <a href="">home2</a>
-            <a href="">home3</a>
-            <a href="">home4</a>
+            <a href="#sec1">home1</a>
+            <a href="#sec2">home2</a>
         </nav>
     </header>
 
     <section>
-        <div class="arrows">
-            <button class="back">ESQUERDA</button>
-            <button class="next">DIREITA</button>
-        </div>
         <div>
             <h1>João Silva</h1>
             <h2>Fotógrafo de eventos sociais</h2>
             <p>
-                Meu trabalho é registrar emoções reais com sensibilidade e técnica, transformando momentos especiais em
-                memórias inesquecíveis.
+                Sou João Silva, fotógrafo com mais de 10 anos de experiência em eventos sociais. Acredito que a fotografia é uma forma de eternizar sentimentos — aquele sorriso tímido, o abraço apertado, as lágrimas discretas.
+                Meu estilo é documental e emocional, sempre buscando capturar o que há de mais verdadeiro em cada instante.
             </p>
         </div>
         <img src="Imagens/joao.png" alt="">
     </section>
 
-    <section class="container">
+    <section class="container" id="sec2">
+        <div class="arrows" id="sec1">
+            <button class="back">&lt;</button>
+            <button class="next">></button>
+        </div>
         <div class="list">
             <div class="list-item">
                 <img src="Imagens/casal2.png" alt="">
@@ -50,7 +48,6 @@
                 <img src="Imagens/casal.png" alt="">
             </div>
         </div>
-
         <div class="thumb">
             <div class="thumb-item">
                 <img src="Imagens/casal2.png" alt="">
@@ -65,39 +62,9 @@
                 <img src="Imagens/casal.png" alt="">
             </div>
         </div>
-
-
     </section>
-
-
     <footer>
-
     </footer>
-
-    <script>
-        let btnNext = document.querySelector('.next')
-        let btnBack = document.querySelector('.back')
-
-        let container = document.querySelector('.container')
-        let list = document.querySelector('.container .list')
-        let thumb = document.querySelector('.container .thumb')
-
-        btnNext.onclick = () => moveItems('next')
-        btnBack.onclick = () => moveItems('back')
-
-        function moveItems(type) {
-            let listItem = document.querySelectorAll('.list .list-item')
-            let thumbItem = document.querySelectorAll('.thumb .thumb-item')
-
-            if (type === 'next') {
-                list.appendChild(listItem[0])
-                thumb.appendChild(thumbItem[0])
-            } else {
-                list.prepend(listItem[listItem.length - 1])
-                thumb.prepend(thumbItem[thumbItem.length - 1])
-            }
-        }
-    </script>
+    <script src="JS/projeto.js"></script>
 </body>
-
 </html>
